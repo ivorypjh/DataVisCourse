@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse
 
 # 함수 import
 from vistest import make_graph
+from vistest2 import make_graph2
 
 
 # 라우터 객체 생성
@@ -59,6 +60,8 @@ async def read_data(data_num: int) -> str:
         # import한 함수를 활용해 데이터를 가지고 그래프를 생성한 다음
         # 그래프를 html로 변환
         graph_html = make_graph(data_num)
+        graph_html_2 = make_graph2(data_num)
+
 
         # 전체 html 응답 생성
         html_content = f"""
@@ -69,6 +72,7 @@ async def read_data(data_num: int) -> str:
             <body>
                 <h1>Data Vis for User {data_num}</h1>
                 {graph_html}
+                {graph_html_2}
             </body>
         </html>
         """
